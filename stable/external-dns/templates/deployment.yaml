@@ -57,9 +57,8 @@ spec:
         {{- if .Values.publishInternalServices }}
         - --publish-internal-services
         {{- end }}
-        {{- range .Values.domainFilters }}
-        - --domain-filter={{ . }}
-        {{- end }}
+        - --domain-filter=zipzero.com
+        - --domain-filter=zipzero.net
         {{- range .Values.zoneIdFilters }}
         - --zone-id-filter={{ . }}
         {{- end }}
