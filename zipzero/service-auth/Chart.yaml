@@ -1,7 +1,7 @@
 apiVersion: v1 
 description: A Helm chart for Kubernetes
 name: service-auth
-version: 1.0.7
+version: 1.0.8
 maintainers:
   - name: Piotr Szwed 
     email: pszwed@cognitive-cs.com 
