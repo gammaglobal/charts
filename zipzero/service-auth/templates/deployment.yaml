@@ -27,7 +27,7 @@ spec:
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: config-volume
-              mountPath: service-auth-dev01-app-config
+              mountPath: application-specific.yml
               subPath: service-auth-dev01.yaml
           ports:
             - containerPort: {{ .Values.service.externalPort }} 
