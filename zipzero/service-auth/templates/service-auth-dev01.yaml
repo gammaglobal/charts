@@ -18,4 +18,4 @@ data:
     rabbit_pass: TBD
     redis_host: TBD
     redis_port: 6379
-    server_port: 37002
+    server_port: 37001
