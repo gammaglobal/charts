@@ -18,3 +18,5 @@ resources:
       _default: "1024Mi"
     cpu:
       _default: "30m"
+env:
+  test: "aaa"
