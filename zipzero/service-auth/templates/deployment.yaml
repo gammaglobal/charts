@@ -43,11 +43,11 @@ spec:
                 initialDelaySeconds: 30
                 periodSeconds: 10
                 timeoutSeconds: 5  
+          envFrom:
+            - prefix: ""
+              configMapRef:
+                name: {{ template "service-auth.fullname" . }}
       volumes:
         - name: config-volume
           configMap:
             name: service-auth-dev01-app-config
-          envFrom:
-            - prefix: ""
-              configMapRef:
-               name: {{ template "service-auth.fullname" . }}
