@@ -20,7 +20,7 @@
 
 {{/* Name of the application. Example: service-auth */}}
 {{- define "service-auth.name" -}}
-  {{- printf "%s" .Chart.Name | splitList "-" | last -}}
+  {{- printf "%s" .Chart.Name -}}
 {{- end -}}
 
 
