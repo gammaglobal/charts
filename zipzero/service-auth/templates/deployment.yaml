@@ -25,6 +25,10 @@ spec:
               cpu: {{ index .Values.resources.requests.cpu .Values.envtype | default .Values.resources.requests.cpu._default }}
           image: {{ .Values.image.repo }}{{ .Values.image.path }}:{{ .Values.image.tag }}
           imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: config-volume
+              mountPath: service-auth-dev01-app-config
+              subPath: service-auth-dev01.yaml
           ports:
             - containerPort: {{ .Values.service.externalPort }} 
               readinessProbe:
@@ -39,6 +43,10 @@ spec:
                 initialDelaySeconds: 30
                 periodSeconds: 10
                 timeoutSeconds: 5  
+      volumes:
+        - name: config-volume
+          configMap:
+            name: service-auth-dev01-app-config
           envFrom:
             - prefix: ""
               configMapRef:
