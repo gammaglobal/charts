@@ -12,10 +12,10 @@ data:
     db_user: service-auth-dev01
     db_pass: yb2zDGweLhzcTei
     db_name: service-auth-dev01
-    rabbit_host: tbd 
-    rabbit_port: 132 
-    rabbit_user: TBD
-    rabbit_pass: TBD
+    rabbit_host: dove.rmq.cloudamqp.com/yttgqspx
+    rabbit_port: 5672 
+    rabbit_user: yttgqspx
+    rabbit_pass: BUQi0dpPilTtBcgUwHPQmktGkgZ29ExE
     redis_host: redis-11742.c102.us-east-1-mz.ec2.cloud.redislabs.com
     redis_port: 11742
     redis_pass: eXSGf6RiDxRmORkzT1fJD5wspgDqgkwY
