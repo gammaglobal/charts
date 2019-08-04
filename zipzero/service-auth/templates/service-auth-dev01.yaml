@@ -16,6 +16,7 @@ data:
     rabbit_port: 5672 
     rabbit_user: yttgqspx
     rabbit_pass: BUQi0dpPilTtBcgUwHPQmktGkgZ29ExE
+    rabbit_vhost: yttgqspx
     redis_host: redis-11742.c102.us-east-1-mz.ec2.cloud.redislabs.com
     redis_port: 11742
     redis_pass: eXSGf6RiDxRmORkzT1fJD5wspgDqgkwY
