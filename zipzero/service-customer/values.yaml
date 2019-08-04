@@ -2,7 +2,7 @@ envtype: ""
 envid: ""
 image:
   repo: eu.gcr.io 
-  path: /development-gg/service-auth
+  path: /development-gg/service-customer
   tag: 1.0.2 
 service:
   externalPort: 80

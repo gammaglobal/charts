@@ -18,6 +18,9 @@ data:
     rabbit_user: yttgqspx
     rabbit_pass: BUQi0dpPilTtBcgUwHPQmktGkgZ29ExE
     rabbit_vhost: yttgqspx
-    redis_host: redis-11742.c102.us-east-1-mz.ec2.cloud.redislabs.com
-    redis_port: 11742
-    redis_pass: eXSGf6RiDxRmORkzT1fJD5wspgDqgkwY
+  integrations:
+    google-storage:
+      user: development-gg@appspot.gserviceaccount.com
+      key: -----BEGIN PRIVATE KEY--- [TBD]
+      base-url: https://storage.googleapis.com
+      bucket-path: /development-gg.appspot.com/receipts/

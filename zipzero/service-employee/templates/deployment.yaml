@@ -1,23 +1,23 @@
 apiVersion: extensions/v1beta1 
 kind: Deployment
 metadata:
-  name: {{ template "service-auth.fullname" . }}
+  name: {{ template "service-employee.fullname" . }}
   labels:
-{{ include "service-auth.labels" . | indent 4 }}
+{{ include "service-employee.labels" . | indent 4 }}
 {{ include "chart.labels" . | indent 4 }}
 spec:
   replicas: {{ default "1" .Values.replicaCount }}
   template:
     metadata:
       labels:
-{{ include "service-auth.labels" . | indent 8 }}
+{{ include "service-employee.labels" . | indent 8 }}
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       hostNetwork: true
       dnsPolicy: Default
       containers:
-        - name: {{ template "service-auth.fullname" . }}
+        - name: {{ template "service-employee.fullname" . }}
           resources:
             limits:
               memory: {{ index .Values.resources.limits.mem .Values.envtype | default .Values.resources.limits.mem._default }}
@@ -30,7 +30,7 @@ spec:
           volumeMounts:
             - name: config-volume
               mountPath: application-specific.yml
-              subPath: {{ template "service-auth.fullname" . }}.yaml
+              subPath: {{ template "service-employee.fullname" . }}.yaml
           ports:
             - containerPort: {{ .Values.service.externalPort }} 
               readinessProbe:
@@ -48,8 +48,8 @@ spec:
           envFrom:
             - prefix: ""
               configMapRef:
-                name: {{ template "service-auth.fullname" . }}
+                name: {{ template "service-employee.fullname" . }}
       volumes:
         - name: config-volume
           configMap:
-            name: {{ template "service-auth.fullname" . }}-app-config
+            name: {{ template "service-employee.fullname" . }}-app-config

@@ -11,41 +11,41 @@
 {{- end -}}
 
 
-{{- define "service-auth.env" -}}
+{{- define "service-notification.env" -}}
   {{- $envtype := required "A valid envtype value is required" .Values.envtype -}}
   {{- $envid := required "A valid envid value is required" .Values.envid -}}
   {{- printf "%s%s" $envtype $envid -}}
 {{- end -}}
 
 
-{{/* Name of the application. Example: service-auth */}}
-{{- define "service-auth.name" -}}
+{{/* Name of the application. Example: service-notification */}}
+{{- define "service-notification.name" -}}
   {{- printf "%s" .Chart.Name -}}
 {{- end -}}
 
 
-{{/* Full name of the application: <name>-<env> Example: service-auth */}}
-{{- define "service-auth.fullname" -}}
-  {{- printf "%s-%s" (include "service-auth.name" .) (include "service-auth.env" .) | trunc 63 | trimSuffix "-" -}}
+{{/* Full name of the application: <name>-<env> Example: service-notification */}}
+{{- define "service-notification.fullname" -}}
+  {{- printf "%s-%s" (include "service-notification.name" .) (include "service-notification.env" .) | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 
-{{/* Docker image of the service-auth deployment. */}}
-{{- define "service-auth.container" -}}
-{{- $repo := required "A valid service-auth docker repo value is required" .Values.image.repo -}}
-{{- $path := required "A valid service-auth docker path value is required" .Values.image.path -}}
-{{- $tag := required "A valid service-auth docker tag value is required" .Values.image.tag -}}
+{{/* Docker image of the service-notification deployment. */}}
+{{- define "service-notification.container" -}}
+{{- $repo := required "A valid service-notification docker repo value is required" .Values.image.repo -}}
+{{- $path := required "A valid service-notification docker path value is required" .Values.image.path -}}
+{{- $tag := required "A valid service-notification docker tag value is required" .Values.image.tag -}}
 {{- printf "%s%s:%s" $repo $path $tag -}}
 {{- end -}}
 
 
-{{/* Chart name and version as used by the chart label. Example: service-auth-1.0.1 */}}
-{{- define "service-auth.chart" -}}
+{{/* Chart name and version as used by the chart label. Example: service-notification-1.0.1 */}}
+{{- define "service-notification.chart" -}}
   {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/* Domain name based on envtype. zipzero.net for development, zipzero.com for production Example: zipzero.net */}}
-{{- define "service-auth.domain" -}}
+{{- define "service-notification.domain" -}}
   {{- if .Values.domain -}}
     {{- .Values.domain -}}
   {{- else -}}
@@ -61,40 +61,40 @@
 
 
 
-{{- define "service-auth.dns" -}}
-  {{- $host := default (include "service-auth.fullname" .) .Values.dns.host -}}
-    {{- printf "%s.%s" $host (include "service-auth.domain" .) -}}
+{{- define "service-notification.dns" -}}
+  {{- $host := default (include "service-notification.fullname" .) .Values.dns.host -}}
+    {{- printf "%s.%s" $host (include "service-notification.domain" .) -}}
 {{- end -}}
 
-{{- define "service-auth.labels" -}}
-env: {{ template "service-auth.env" . }}
+{{- define "service-notification.labels" -}}
+env: {{ template "service-notification.env" . }}
 envtype: {{ .Values.envtype }}
 release: {{ .Release.Name | quote }}
-app: service-auth 
+app: service-notification 
 {{- end -}}
 
 {{- define "chart.labels" -}}
-chart: {{ template "service-auth.chart" . }}
+chart: {{ template "service-notification.chart" . }}
 heritage: {{ .Release.Service | quote }}
 {{- end -}}
 
 
-{{- define "service-auth.selector" -}}
-app: service-auth 
-env: {{ template "service-auth.env" . }}
+{{- define "service-notification.selector" -}}
+app: service-notification 
+env: {{ template "service-notification.env" . }}
 {{- end -}}
 
 
 {{- define "mongo.db" -}}
   {{- if .postfix }}
-    {{- printf " %s-%s-service-auth-%s-%s" .Release.Namespace (include "service-auth.name" .) (include "service-auth.env" .) .postfix -}}
+    {{- printf " %s-%s-service-notification-%s-%s" .Release.Namespace (include "service-notification.name" .) (include "service-notification.env" .) .postfix -}}
   {{- else }}
-    {{- printf " %s-%s-service-auth-%s" .Release.Namespace (include "service-auth.name" .) (include "service-auth.env" .) -}}
+    {{- printf " %s-%s-service-notification-%s" .Release.Namespace (include "service-notification.name" .) (include "service-notification.env" .) -}}
   {{- end }}
 {{- end -}}
 
 
-{{- /* Create full database user name for MongoDB. Example: service-auth-dev01 */ -}}
+{{- /* Create full database user name for MongoDB. Example: service-notification-dev01 */ -}}
 {{- define "mongo.user" -}}
-  {{- printf "%s-%s-%s" .Release.Namespace (include "service-auth.name" .) (include "service-auth.env" .) -}}
+  {{- printf "%s-%s-%s" .Release.Namespace (include "service-notification.name" .) (include "service-notification.env" .) -}}
 {{- end -}}
