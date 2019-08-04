@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "service-auth.fullname" . }}
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: service-auth.zipzero.net
+  labels:
+{{ include "service-auth.labels" . | indent 4 }}
+{{ include "chart.labels" . | indent 4 }}
+spec:
+  ports:
+    - port: {{ .Values.service.externalPort }}
+      targetPort: {{ .Values.service.internalPort }}
+      name: {{ template "service-auth.fullname" . }}
+  selector:
+{{ include "service-auth.selector" . | indent 4 }}
