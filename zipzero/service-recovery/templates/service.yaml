@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "service-auth.fullname" . }}
+  name: {{ template "service-recovery.fullname" . }}
   labels:
-{{ include "service-auth.labels" . | indent 4 }}
+{{ include "service-recovery.labels" . | indent 4 }}
 {{ include "chart.labels" . | indent 4 }}
 spec:
   ports:
     - port: {{ .Values.service.externalPort }}
       targetPort: {{ .Values.service.internalPort }}
-      name: {{ template "service-auth.fullname" . }}
+      name: {{ template "service-recovery.fullname" . }}
   selector:
-{{ include "service-auth.selector" . | indent 4 }}
+{{ include "service-recovery.selector" . | indent 4 }}

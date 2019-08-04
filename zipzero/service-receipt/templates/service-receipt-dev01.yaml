@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "service-auth.fullname" . }}-app-config
+  name: {{ template "service-receipt.fullname" . }}-app-config
   labels:
-{{ include "service-auth.labels" . | indent 4 }}
+{{ include "service-receipt.labels" . | indent 4 }}
 {{ include "chart.labels" . | indent 4 }}
 data:
-  service-auth-dev01.yaml: |
+  service-receipt-dev01.yaml: |
     db_host: 10.126.224.3
     db_port: 5432
-    db_user: service-auth-dev01
+    db_user: service-receipt-dev01
     db_pass: yb2zDGweLhzcTei
-    db_name: service-auth-dev01
+    db_name: service-receipt-dev01
     rabbit_host: dove.rmq.cloudamqp.com/yttgqspx
     rabbit_port: 5672 
     rabbit_ssl_port: 443
