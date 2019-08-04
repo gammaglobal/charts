@@ -1,18 +1,27 @@
-apiVersion: batch/v1beta1
-kind: CronJob
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: hello
+  name: init-rabbit
 spec:
-  schedule: "*/1 * * * *"
-  jobTemplate:
+  template:
+    metadata:
+      name: init-rabbit
     spec:
-      template:
-        spec:
-          containers:
-          - name: hello
-            image: busybox
-            args:
-            - /bin/sh
-            - -c
-            - date; echo Hello from the Kubernetes cluster
-          restartPolicy: OnFailure
+      restartPolicy: Never
+      containers:
+      - name: init-rabbit
+        image: {{ .Values.toolkit }}
+        command: ["bash"]
+        args: ["-c", "./scripts/init-rabbit.sh"]
+        env:
+          - name: RABBIT_HOST
+            value: {{ .Values.env.rabbit_host }}
+          - name: RABBIT_VHOST
+            value: {{ .Values.env.rabbit_vhost }}
+          - name: RABBIT_PASSWORD
+            value: {{ .Values.env.rabbit_pass }}
+          - name: RABBIT_USER
+            value: {{ .Values.env.rabbit_user }}
+          - name: RABBIT_PORT
+            value: {{ .Values.env.rabbit_ssl_port | quote }} 
+

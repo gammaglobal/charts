@@ -1,2 +1,21 @@
 envid: "01"
 envtype: "dev"
+toolkit: "eu.gcr.io/development-gg/toolkit:1.2.2"
+
+
+### app config
+
+env:
+  service-auth-db_port: "5432"
+  service-auth-db_user: "service-auth-dev01"
+  service-auth-db_pass: "yb2zDGweLhzcTei"
+  service-auth-db_name: "service-auth-dev01"
+  rabbit_host: "dove.rmq.cloudamqp.com"
+  rabbit_port: "5672"
+  rabbit_ssl_port: "443"
+  rabbit_user: "yttgqspx"
+  rabbit_pass: "BUQi0dpPilTtBcgUwHPQmktGkgZ29ExE"
+  rabbit_vhost: "yttgqspx"
+  redis_host: "redis-11742.c102.us-east-1-mz.ec2.cloud.redislabs.com"
+  redis_port: "11742"
+  redis_pass: "eXSGf6RiDxRmORkzT1fJD5wspgDqgkwY"
