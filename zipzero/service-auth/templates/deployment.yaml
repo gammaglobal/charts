@@ -30,7 +30,7 @@ spec:
           volumeMounts:
             - name: config-volume
               mountPath: application-specific.yml
-              subPath: service-auth-dev01.yaml
+              subPath: {{ template "service-auth.fullname" . }}.yaml
           ports:
             - containerPort: {{ .Values.service.externalPort }} 
               readinessProbe:
@@ -52,4 +52,4 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: service-auth-dev01-app-config
+            name: {{ template "service-auth.fullname" . }}-app-config
