@@ -18,9 +18,9 @@ data:
     rabbit_user: yttgqspx
     rabbit_pass: BUQi0dpPilTtBcgUwHPQmktGkgZ29ExE
     rabbit_vhost: yttgqspx
-  integrations:
-    google-storage:
-      user: development-gg@appspot.gserviceaccount.com
-      key: -----BEGIN PRIVATE KEY--- [TBD]
-      base-url: https://storage.googleapis.com
-      bucket-path: /development-gg.appspot.com/receipts/
+    integrations:
+      google-storage:
+        user: "development-gg@appspot.gserviceaccount.com"
+        key: "-----BEGIN PRIVATE KEY--- [TBD]"
+        base-url: "https://storage.googleapis.com"
+        bucket-path: "/development-gg.appspot.com/receipts/"
