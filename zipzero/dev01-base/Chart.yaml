@@ -1,0 +1,6 @@
+apiVersion: v1 
+description: Base chart creating dev01 namespace and all the related K8s  objects (secrets, configmaps, roles, etc..)
+name: dev01-base
+version: 1.0.0
+engine: gotpl
+icon: http://www.barco.com/Content/images/barco-logo-web.png
