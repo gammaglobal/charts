@@ -2,7 +2,7 @@ version: 2.1
 executors:
   toolkit:
     docker:
-      - image: eu.gcr.io/development-gg/toolkit:1.2.3
+      - image: eu.gcr.io/development-gg/toolkit:1.2.4
 
 jobs:
   build:
