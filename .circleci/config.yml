@@ -1,49 +1,20 @@
-version: 2
+version: 2.1
+executors:
+  toolkit:
+    docker:
+      - image: eu.gcr.io/development-gg/toolkit:1.2.3
+
 jobs:
-  lint-scripts:
-    docker:
-      - image: koalaman/shellcheck-alpine
+  build:
+    executor: toolkit
     steps:
+      - setup_remote_docker
       - checkout
-      - run:
-          name: lint
-          command: |
-            shellcheck -x test/build.sh
-            shellcheck -x test/e2e.sh
-            shellcheck -x test/helm-test-e2e.sh
-            shellcheck -x test/repo-sync.sh
-  lint-charts:
-    docker:
-      - image: gcr.io/kubernetes-charts-ci/test-image:v3.3.2
-    steps:
-      - checkout
-      - run:
-          name: lint
-          command: |
-            git remote add k8s https://github.com/helm/charts
-            git fetch k8s master
-            ct lint --config test/ct.yaml
-  sync:
-    docker:
-      - image: google/cloud-sdk
-    steps:
-      - checkout
-      - run:
-          name: sync
-          command: test/repo-sync.sh
-workflows:
-  version: 2
-  lint:
-    jobs:
-      - lint-scripts
-      - lint-charts
-  sync:
-    triggers:
-      - schedule:
-          cron: "23,53 * * * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - sync
+      - run: echo ${GOOGLE_AUTH} > gcp-key.json
+      - run: gcloud auth activate-service-account --key-file gcp-key.json
+      - run: gcloud --quiet config set project ${GCP_PROJECT}
+      - run: gcloud auth configure-docker
+      - run: gcloud container clusters get-credentials ${GKE_CLUSTER_NAME} --region ${COMPUTE_REGION}
+      - run: helm repo add zipzero gs://zipzero
+      - run: helm repo update
+      - run: ./scripts/helm-bild-release.sh
