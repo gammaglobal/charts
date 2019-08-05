@@ -10,7 +10,7 @@ data:
     db_host: 10.126.224.3
     db_port: 5432
     db_user: service-recovery-dev01
-    db_pass: yb2zDGweLhzcTei
+    db_pass: DXkgcPUoLemkW6U
     db_name: service-recovery-dev01
     rabbit_host: dove.rmq.cloudamqp.com/yttgqspx
     rabbit_port: 5672 

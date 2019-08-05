@@ -10,7 +10,7 @@ data:
     db_host: 10.126.224.3
     db_port: 5432
     db_user: service-merchant-dev01
-    db_pass: yb2zDGweLhzcTei
+    db_pass: vJcEwUzNts4E2Co
     db_name: service-merchant-dev01
     rabbit_host: dove.rmq.cloudamqp.com/yttgqspx
     rabbit_port: 5672 
