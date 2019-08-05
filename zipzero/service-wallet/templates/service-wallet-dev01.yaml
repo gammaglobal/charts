@@ -12,7 +12,7 @@ data:
     db_user: service-wallet-dev01
     db_pass: 8geXE9X7Fuu7YDw
     db_name: service-wallet-dev01
-    rabbit_host: dove.rmq.cloudamqp.com/yttgqspx
+    rabbit_host: dove.rmq.cloudamqp.com
     rabbit_port: 5672 
     rabbit_ssl_port: 443
     rabbit_user: yttgqspx

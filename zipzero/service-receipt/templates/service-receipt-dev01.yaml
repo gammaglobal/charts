@@ -12,7 +12,7 @@ data:
     db_user: service-receipt-dev01
     db_pass: FGjAxaYdgH6PtKY
     db_name: service-receipt-dev01
-    rabbit_host: dove.rmq.cloudamqp.com/yttgqspx
+    rabbit_host: dove.rmq.cloudamqp.com
     rabbit_port: 5672 
     rabbit_ssl_port: 443
     rabbit_user: yttgqspx

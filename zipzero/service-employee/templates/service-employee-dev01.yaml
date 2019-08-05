@@ -12,7 +12,7 @@ data:
     db_user: service-employee-dev01
     db_pass: eR9sLUaZ6Hcow2D
     db_name: service-employee-dev01
-    rabbit_host: dove.rmq.cloudamqp.com/yttgqspx
+    rabbit_host: dove.rmq.cloudamqp.com
     rabbit_port: 5672 
     rabbit_ssl_port: 443
     rabbit_user: yttgqspx

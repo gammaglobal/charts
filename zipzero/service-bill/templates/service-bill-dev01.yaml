@@ -12,7 +12,7 @@ data:
     db_user: service-bill-dev01
     db_pass: Cc3XqatEcCZvHY7
     db_name: service-bill-dev01
-    rabbit_host: dove.rmq.cloudamqp.com/yttgqspx
+    rabbit_host: dove.rmq.cloudamqp.com
     rabbit_port: 5672 
     rabbit_ssl_port: 443
     rabbit_user: yttgqspx

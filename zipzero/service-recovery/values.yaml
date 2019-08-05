@@ -5,8 +5,8 @@ image:
   path: /development-gg/service-recovery
   tag: 1.0.2 
 service:
-  externalPort: 80
-  internalPort: 80
+  externalPort: 37010
+  internalPort: 37010
 resources:
   limits:
     mem:

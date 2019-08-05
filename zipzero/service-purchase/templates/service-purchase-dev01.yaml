@@ -12,7 +12,7 @@ data:
     db_user: service-purchase-dev01
     db_pass: juiDwF2GJZP4Gn4
     db_name: service-purchase-dev01
-    rabbit_host: dove.rmq.cloudamqp.com/yttgqspx
+    rabbit_host: dove.rmq.cloudamqp.com
     rabbit_port: 5672 
     rabbit_ssl_port: 443
     rabbit_user: yttgqspx

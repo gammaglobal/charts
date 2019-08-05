@@ -1,7 +1,7 @@
 apiVersion: v1 
 description: A Helm chart for Kubernetes
 name: service-purchase
-version: 1.0.1
+version: 1.0.2
 maintainers:
   - name: Piotr Szwed 
     email: pszwed@cognitive-cs.com 

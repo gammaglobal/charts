@@ -5,8 +5,8 @@ image:
   path: /development-gg/service-receipt
   tag: 1.0.2 
 service:
-  externalPort: 80
-  internalPort: 80
+  externalPort: 37005
+  internalPort: 37005
 resources:
   limits:
     mem:

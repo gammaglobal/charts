@@ -5,8 +5,8 @@ image:
   path: /development-gg/service-bill
   tag: 1.0.2 
 service:
-  externalPort: 80
-  internalPort: 80
+  externalPort: 37009
+  internalPort: 37009
 resources:
   limits:
     mem:
