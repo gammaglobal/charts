@@ -7,6 +7,7 @@ metadata:
 {{ include "chart.labels" . | indent 4 }}
 data:
   service-customer-dev01.yaml: |
+    customer_list_enabled: true
     db_host: 10.126.224.3
     db_port: 5432
     db_user: service-customer-dev01
