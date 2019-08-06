@@ -3,7 +3,7 @@ envid: ""
 image:
   repo: eu.gcr.io 
   path: /development-gg/service-auth
-  tag: 1.0.2 
+  tag: 1.0.30
 service:
   externalPort: 37001
   internalPort: 37001
